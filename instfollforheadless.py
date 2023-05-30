@@ -9,26 +9,30 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import undetected_chromedriver as uc
 from pymongo import MongoClient
 
 
 options = webdriver.ChromeOptions()
+options.headless = True
+options.add_argument('--disable-popup-blocking')
+bot = uc.Chrome(options=options)
 # ua = UserAgent()
 # userAgent = ua.random
 # print(userAgent)
 # options.add_argument('--window-size=1920,1080')
-options.add_argument("--start-maximized")
-options.add_argument("--disable-blink-features=AutomationControlled")
+#options.add_argument("--start-maximized")
+#options.add_argument("--disable-blink-features=AutomationControlled")
 
 
 # Exclude the collection of enable-automation switches
-options.add_experimental_option("excludeSwitches", ["enable-automation"])
+#options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
 # Turn-off userAutomationExtension
-options.add_experimental_option("useAutomationExtension", False)
+#options.add_experimental_option("useAutomationExtension", False)
 # options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36')
 # options.add_argument(f'user-agent=Chrome/113.0.0.0')
-options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36')
+#options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36')
 # # options.add_experimental_option('excludeSwitches', ['enable-logging'])
 # options.add_argument("--log-level=3")
 # options.add_argument(r"--user-data-dir=C:\Users\jatin\AppData\Local\Google\Chrome\User Data") 
@@ -79,7 +83,8 @@ def RunScript():
                 print(a['email'])   
 
                 #############NEW##################
-                bot = webdriver.Chrome(chrome_options=options)
+                #bot = webdriver.Chrome(chrome_options=options)
+		bot = uc.Chrome(options=options)
 
                 bot.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
                 ################################
