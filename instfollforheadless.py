@@ -159,6 +159,7 @@ def RunScript():
                 bot.quit()
                 ##############
             except Exception as e:
+                print(e)
                 data = {'email': emaill, 'follow': 'false'}
 
                 collection6.insert_one(data)
