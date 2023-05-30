@@ -64,22 +64,18 @@ def RunScript():
         while count < totallines:
 
             try:
+
                 a = collection5.find_one_and_delete({})
                 emaill = a['email']
                 print(a['email'])   
 
                 #############NEW##################
                 #bot = webdriver.Chrome(chrome_options=options)
-		bot = uc.Chrome(options=options)
-
-                bot.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-                ################################
-
-                print(lines[count])
-
-                time.sleep(5)
+		    # bot = uc.Chrome(options=options)
                 
-
+                # time.sleep(5)
+                bot = uc.Chrome(options=options)
+                time.sleep(5)
                 bot.get('https://www.instagram.com/')
                 time.sleep(3)
             
