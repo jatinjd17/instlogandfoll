@@ -38,12 +38,12 @@ options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebK
 #e.g. C:\Users\You\AppData\Local\Google\Chrome\User Data
 # options.add_argument('profile-directory=Default')
 # options.add_argument('--window-size=1920,1080')
-#options.add_argument("--headless")
+options.add_argument("--headless")
 time.sleep(2)
 
 
 # options = webdriver.ChromeOptions()
-options.headless = True
+# options.headless = True
 # options.add_argument('--disable-popup-blocking')
 #bot = uc.Chrome(options=options)
 # ua = UserAgent()
@@ -100,6 +100,8 @@ def RunScript():
 
                 #############NEW##################
                 bot = webdriver.Chrome(chrome_options=options)
+
+                bot.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 		    # bot = uc.Chrome(options=options)
                 
                 # time.sleep(5)
