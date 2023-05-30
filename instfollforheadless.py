@@ -16,7 +16,7 @@ from pymongo import MongoClient
 options = webdriver.ChromeOptions()
 options.headless = True
 options.add_argument('--disable-popup-blocking')
-bot = uc.Chrome(options=options)
+#bot = uc.Chrome(options=options)
 # ua = UserAgent()
 # userAgent = ua.random
 # print(userAgent)
@@ -51,21 +51,7 @@ def RunScript():
 
     
 
-    bot = webdriver.Chrome(chrome_options=options)
-
-    bot.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-
-    firstname = (names.get_first_name(gender='male')).lower()
-    lastname = (names.get_last_name()).lower()
-    email = firstname+'_'+lastname+str(random.randrange(7598,100000))+'@outlook.com'
-    print(email)
-
-
-    f = open('instaacc.txt','r+')
-            # with open("mediumlinks2.txt", "r+", encoding="utf-8") as f:
-    lines = f.readlines()
-
-    print(len(lines))
+  
     # totallines = len(lines)
     totallines = 6
     count = 0
