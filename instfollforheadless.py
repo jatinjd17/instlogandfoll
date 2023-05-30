@@ -166,7 +166,7 @@ def RunScript():
                 ##########NEW#########
                 count = count + 1
                 bot.quit()
-                continue
+                break
             #######################
                
 
